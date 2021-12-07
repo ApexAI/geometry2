@@ -499,7 +499,7 @@ tf2::TF2Error BufferCore::walkToTopParent(F& f, TimePoint time, CompactFrameID t
     if (n > 0)
       frame_chain->erase(frame_chain->begin() + (n-1), frame_chain->end());
 
-    if (m < reverse_frame_chain.size())
+    if (m < static_cast<decltype(m)>(reverse_frame_chain.size()))
     {
       for (int i = m; i >= 0; --i)
       {
@@ -1605,7 +1605,7 @@ void BufferCore::_chainAsVector(const std::string & target_frame, TimePoint targ
     if (n > 0)
       source_frame_chain.erase(source_frame_chain.begin() + (n-1), source_frame_chain.end());
 
-    if (m < target_frame_chain.size())
+    if (m < static_cast<decltype(m)>(target_frame_chain.size()))
     {
       for (int i = 0; i <= m; ++i)
       {
